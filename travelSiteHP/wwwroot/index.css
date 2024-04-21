@@ -1,0 +1,278 @@
+body,
+html {
+    max-width: 100%;
+    background: #F5F8E7;
+    font-family: 'Patrick Hand', cursive;
+    color: #000;
+}
+
+.brand {
+    font-family: "Caveat", cursive;
+}
+
+.nav-item a {
+    color: #000;
+    text-decoration: none;
+}
+
+.nav-item {
+    border: 1px solid transparent;
+    color: #000;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 1.7rem
+}
+
+.navbar-brand {
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 2.4rem
+}
+
+.navbar.scrolled {
+    z-index: 1000;
+    background-color: #e2e7cf;
+    transition: background 500ms;
+    opacity: 0.9;
+}
+
+.nav-item:hover {
+    color: #5E6163;
+    transition: 0.5s ease-in-out;
+}
+
+.contact {
+    background-color: #e7f1b8;
+    color: #000;
+    font-size: 1.7rem;
+    border: transparent;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.contactBar {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.contact:hover {
+    background-color: #e2f19f;
+    transition: 0.5s ease-in-out;
+}
+
+.image-container {
+    width: 100%;
+    /* Adjust to desired width */
+    height: 87vh;
+    /* Adjust to desired height */
+    background-image: url('../assets/dolomites.jpeg');
+    background-size: cover;
+    /* Cover the entire div */
+    background-position: center;
+    /* Center the image */
+}
+
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 87vh;
+    background-image: url('../assets/dolomites.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Adjust the transparency (last value) to make it darker */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centered-content {
+    text-align: center;
+    color: white;
+}
+
+.centered-content button {
+    padding: 10px 20px;
+    background-color: #f5f8e7;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.8em;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+h3 {
+    font-size: 2.3em;
+    margin-bottom: 1.5em;
+}
+
+.headText {
+    font-size: 6em;
+    margin-bottom: 20px;
+}
+
+.actionButton {
+    font-size: 10em;
+}
+
+.head h1 {
+    font-size: 2em;
+}
+
+.text-center {
+    text-align: center;
+
+}
+
+.text-center p {
+    padding-left: 100px;
+    padding-right: 100px;
+    /* max-width: 7em; */
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.carouselContainer {
+    position: relative;
+}
+
+.carouselContainer .item {
+    position: relative;
+}
+
+.carouselContainer .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.carouselContainer .item .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Adjust the transparency (last value) to make it darker */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carouselContainer .item .mask h2 {
+    font-size: 2.5em;
+    color: #fff;
+    margin: 0;
+}
+
+.carouselContainer {
+    margin: 0 auto 24px;
+}
+
+.owl-carousel {
+    position: relative;
+}
+
+.owl .owl-prev,
+.owl .owl-next {
+    font-size: 50px !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-60%);
+    background: transparent;
+    border: none;
+    color: #fff;
+}
+
+.owl .owl-prev {
+    left: -10px;
+}
+
+.owl .owl-next {
+    right: -10px;
+}
+
+.star-icons {
+    margin-top: 10px;
+    display: flex;
+    /* Use flexbox to align items horizontally */
+    justify-content: center;
+    /* Center align the star icons */
+}
+
+.star-icon {
+    width: 32px !important;
+    /* Adjust size as needed */
+    height: 32px !important;
+    /* Adjust size as needed */
+    margin: 0 8px;
+    /* Adjust spacing between stars */
+}
+
+.owl-carousel.owl1 {
+    display: flex;
+    /* Use flexbox to center align items */
+    justify-content: center;
+    /* Center align items horizontally */
+    align-items: center;
+    /* Center align items vertically */
+}
+
+.review-item p.reviewText {
+    padding-left: 15em;
+    padding-right: 15em;
+}
+
+.review-item p,
+.review-item span {
+    font-size: 2em;
+}
+
+.owl1 {
+    position: relative;
+}
+
+.owl1 .owl-prev,
+.owl1 .owl-next {
+    font-size: 50px !important;
+    position: absolute;
+    top: 80%;
+    transform: translateY(-100%);
+    background: transparent;
+    border: none;
+    color: #fff;
+}
+
+.owl1 .owl-prev {
+    left: 200px;
+}
+
+.owl1 .owl-next {
+    right: 200px;
+}
+
+footer {
+    background: #d3d799;
+    position: relative;
+    bottom: 0;
+}
+
+.footer {
+    width: 100%;
+    padding: 10px;
+}
+
+.footerBottom {
+    font-size: 1.5em;
+}
