@@ -72,12 +72,10 @@ app.MapGet("/admin", (HttpContext context, IAntiforgery antiforgery) =>
     <script src=""https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js""
         integrity=""sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz""
         crossorigin=""anonymous""></script>
-    <script src=""https://unpkg.com/unpoly""></script>
     <script src=""admin.js""></script>
 </body>
 </html>";
     return Results.Content(htmlContent, "text/html");
-
 });
 app.MapGet("/api/items", async (IDbConnection db) =>
 {
@@ -94,6 +92,7 @@ app.MapGet("/api/items", async (IDbConnection db) =>
 
 app.MapGet("/api/content", async (IDbConnection db) =>
 {
+
     var items = await db.QueryAsync<Item>("SELECT * FROM Items");
 
     if (items == null)
@@ -119,6 +118,7 @@ app.MapGet("/api/content", async (IDbConnection db) =>
             item.Title,
             item.Title // Assuming item.Title corresponds to the title of the image
         );
+
     }
 
     // Return the HTML markup
@@ -170,8 +170,8 @@ app.MapDelete("/api/remove/{id}", async (string id, IDbConnection db) =>
     return Results.Redirect("/admin");
 
 });
-
- byte[] ConvertIFormFileToByteArray(IFormFile file)
+app.Run();
+byte[] ConvertIFormFileToByteArray(IFormFile file)
 {
     using (MemoryStream memoryStream = new MemoryStream())
     {
@@ -181,24 +181,14 @@ app.MapDelete("/api/remove/{id}", async (string id, IDbConnection db) =>
         // Convert the memory stream to a byte array
         return memoryStream.ToArray();
     }
-}
 
-IFormFile ConvertByteArrayToIFormFile(byte[] byteArray, string fileName)
-{
-    // Create a MemoryStream from the byte array
-    using (MemoryStream memoryStream = new MemoryStream(byteArray))
-    {
-        // Create an instance of FormFile
-        return new FormFile(memoryStream, 0, byteArray.Length, null, fileName);
-    }
 }
-app.Run();
-
 public class Item
 {
     public string ID { get; set; }
     public string Title { get; set; }
     public byte[] Image { get; set; }
 }
+
 
 
