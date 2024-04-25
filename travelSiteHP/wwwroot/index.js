@@ -31,6 +31,7 @@ function initializeCarousel() {
 }
 document.addEventListener('htmx:afterSwap', function (event) {
     initializeCarousel();
+    console.log('Carousel initialized');
 });
 
 $(function () {
