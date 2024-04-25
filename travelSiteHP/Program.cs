@@ -64,9 +64,9 @@ app.MapGet("/api/content", async (IDbConnection db) =>
         );
 
     }
-
     // Return the HTML markup
     return Results.Content(htmlBuilder.ToString());
+
 });
 
 app.MapPost("/api/insert", async (IFormFile img, [FromForm] string name, IDbConnection db, IAntiforgery antiforgery, HttpContext context) =>
