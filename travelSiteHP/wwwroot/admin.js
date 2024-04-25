@@ -74,8 +74,8 @@ removeForm.addEventListener('submit', function(event) {
             method: 'DELETE',
         })
         .then(response => {
-            if (response.redirected) {
-                window.location.href = response.url;
+            if (response.ok) {
+                console.log('Item removed');
             }
         });
     }

@@ -248,7 +248,9 @@ h3 {
 .owl1 .owl-next {
     right: 200px;
 }
-
+.validation {
+    color: red;
+}
 footer {
     background: #d3d799;
     position: relative;
