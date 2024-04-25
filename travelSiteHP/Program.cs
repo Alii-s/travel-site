@@ -36,7 +36,6 @@ app.MapGet("/api/items", async (IDbConnection db) =>
 
 app.MapGet("/api/content", async (IDbConnection db) =>
 {
-
     var items = await db.QueryAsync<Item>("SELECT * FROM Items");
 
     if (items == null)
@@ -47,10 +46,15 @@ app.MapGet("/api/content", async (IDbConnection db) =>
     // Generate HTML markup for the items
     StringBuilder htmlBuilder = new StringBuilder();
 
+    // Start the Owl Carousel wrapper
+    htmlBuilder.Append("<div class=\"owl-carousel owl owl-theme\">");
+
     foreach (var item in items)
     {
         // Assuming you have a method to convert byte array to base64 string
         string base64Image = Convert.ToBase64String(item.Image);
+
+        // Wrap each item within Owl Carousel item markup
         htmlBuilder.AppendFormat(
             "<div class=\"item\">" +
             "<img src=\"data:image/jpeg;base64,{0}\" alt=\"{1}\">" +
@@ -62,11 +66,13 @@ app.MapGet("/api/content", async (IDbConnection db) =>
             item.Title,
             item.Title // Assuming item.Title corresponds to the title of the image
         );
-
     }
+
+    // End the Owl Carousel wrapper
+    htmlBuilder.Append("</div>");
+
     // Return the HTML markup
     return Results.Content(htmlBuilder.ToString());
-
 });
 
 app.MapPost("/api/insert", async (IFormFile img, [FromForm] string name, IDbConnection db, IAntiforgery antiforgery, HttpContext context) =>
@@ -237,7 +243,7 @@ app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) =>
             <h1 style=""font-size: 4em;"">Top Destinations</h1>
         </div>
     </div>
-    <div class=""row container-fluid carouselContainer"" hx-get=""/api/content"" hx-trigger=""load"" hx-target="".owl"">
+    <div class=""row container-fluid carouselContainer"" hx-get=""/api/content"" hx-trigger=""load"">
         <div class=""owl-carousel owl owl-theme"">
             <!-- -->
         </div>
@@ -300,7 +306,7 @@ app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) =>
           <div id=""collapseOne"" class=""accordion-collapse collapse"" aria-labelledby=""headingOne"" data-bs-parent=""#accordionExample"">
             <div class=""accordion-body"">
               <div class=""card-group"">
-                <div class=""card"">
+                <div class=""card"" hx-get=""/api/content"" hx-trigger=""mouseleave"" hx-target="".carouselContainer"">
                   <div class=""card-body"">
                     <h5 class=""card-title text-center"">Add Item</h5>
                     <form action=""/api/insert"" method=""post"" enctype=""multipart/form-data"" class=""p-4 needs-validation"">
@@ -325,7 +331,7 @@ app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) =>
                 </div>
 
 
-                <div class=""card"">
+                <div class=""card"" hx-get=""/api/content"" hx-trigger=""mouseleave"" hx-target="".carouselContainer"">
                   <div class=""card-body"">
                     <h5 class=""card-title text-center"">Remove Item</h5>
                     <form action=""/api/remove/"" method=""post"" enctype=""multipart/form-data"" class=""remove p-4 needs-validation"" hx-get=""/api/items"" hx-target=""#id"" hx-trigger=""mouseenter"">

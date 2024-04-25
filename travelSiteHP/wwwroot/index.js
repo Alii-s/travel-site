@@ -5,7 +5,7 @@ const select = document.querySelector('#id');
 const owl = document.querySelector('.owl');
 function initializeCarousel() {
     var carousel = document.querySelector('.owl');
-
+    console.log('Carousel found')
     if (carousel) {
         $(carousel).owlCarousel({
             loop: true,
@@ -31,7 +31,6 @@ function initializeCarousel() {
 }
 document.addEventListener('htmx:afterSwap', function (event) {
     initializeCarousel();
-    console.log('Carousel initialized');
 });
 
 $(function () {
