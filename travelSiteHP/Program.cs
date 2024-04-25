@@ -19,6 +19,7 @@ app.UseHttpsRedirection();
 
 app.MapGet("/api/items", async (IDbConnection db) =>
 {
+
     var items = await db.QueryAsync<Item>("SELECT ID, title FROM Items");
     if (items == null)
     {
@@ -32,29 +33,24 @@ app.MapGet("/api/items", async (IDbConnection db) =>
     }
 
     return Results.Ok(selectOptions.ToString());
+
 });
 
 app.MapGet("/api/content", async (IDbConnection db) =>
 {
+
     var items = await db.QueryAsync<Item>("SELECT * FROM Items");
 
     if (items == null)
     {
         return Results.NotFound();
     }
-
-    // Generate HTML markup for the items
     StringBuilder htmlBuilder = new StringBuilder();
-
-    // Start the Owl Carousel wrapper
     htmlBuilder.Append("<div class=\"owl-carousel owl owl-theme\">");
 
     foreach (var item in items)
     {
-        // Assuming you have a method to convert byte array to base64 string
         string base64Image = Convert.ToBase64String(item.Image);
-
-        // Wrap each item within Owl Carousel item markup
         htmlBuilder.AppendFormat(
             "<div class=\"item\">" +
             "<img src=\"data:image/jpeg;base64,{0}\" alt=\"{1}\">" +
@@ -64,15 +60,12 @@ app.MapGet("/api/content", async (IDbConnection db) =>
             "</div>",
             base64Image,
             item.Title,
-            item.Title // Assuming item.Title corresponds to the title of the image
+            item.Title
         );
     }
-
-    // End the Owl Carousel wrapper
     htmlBuilder.Append("</div>");
-
-    // Return the HTML markup
     return Results.Content(htmlBuilder.ToString());
+
 });
 
 app.MapPost("/api/insert", async (IFormFile img, [FromForm] string name, IDbConnection db, IAntiforgery antiforgery, HttpContext context) =>
