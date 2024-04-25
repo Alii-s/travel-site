@@ -10,7 +10,7 @@ using System.Text;
 Batteries.Init();
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAntiforgery();
-var connectionString = "Data Source=database/travel-site.db";
+var connectionString = "Data Source=wwwroot/database/travel-site.db";
 builder.Services.AddSingleton<IDbConnection>(_ => new SqliteConnection(connectionString));
 var app = builder.Build();
 app.UseAntiforgery();
