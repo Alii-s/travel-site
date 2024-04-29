@@ -139,63 +139,55 @@ app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) =>
 </head>
 
 <body>
-    <nav id=""mainNavbar"" class=""navbar navbar-expand-lg fs-5 sticky-top"">
-        <a class=""navbar-brand"" href=""#Intro"">
+    <nav id=""mainNavbar"" class=""navbar justify-content-sm-between justify-content-center navbar-expand-lg fs-5 sticky-top"">
+        <a class=""navbar-brand justify-content-start"" href=""#Intro"">
             <img src=""assets/voyage.png"" alt=""logo"" width=""70"" height=""70"">
             <span class=""brand"">Bon<span style=""color: #BBBE64;"">Voyage</span></span>
         </a>
-        <div class=""container-fluid justify-content-start justify-content-lg-center"">
-            <button class=""navbar-toggler mb-3 mt-3"" type=""button"" data-bs-toggle=""collapse"" data-bs-target=""#navbarNav""
-                aria-controls=""navbarNav"" aria-expanded=""false"" aria-label=""Toggle navigation"">
-                <span class=""navbar-toggler-icon""></span>
-            </button>
-            <div class=""collapse navbar-collapse flex-grow-0"" id=""navbarNav"">
-                <ul class=""navbar-nav text-start text-lg-center"">
-                    <li class=""nav-item"">
-                        <a class=""nav-link"" href=""#Intro"">
-                            Home
-                        </a>
-                    </li>
-                    <li class=""nav-item"">
-                        <a class=""nav-link"" href="""">
-                            Destinations
-                        </a>
-                    </li>
-                    <li class=""nav-item"">
-                        <a class=""nav-link"" href="""">
-                            Discover
-                        </a>
-                    </li>
-                    <li class=""nav-item"">
-                        <a class=""nav-link"" href="""">
-                            About
-                        </a>
-                    </li>
-                    <li class=""nav-item"">
-                        <a class=""nav-link"" href="""">
-                            Contact
-                        </a>
-                    </li>
-                </ul>
-
-            </div>
+        <button class=""navbar-toggler mb-3 mt-3"" type=""button"" data-bs-toggle=""collapse"" data-bs-target=""#navbarNav""
+            aria-controls=""navbarNav"" aria-expanded=""false"" aria-label=""Toggle navigation"">
+            <span class=""navbar-toggler-icon""></span>
+        </button>
+        <div class=""collapse navbar-collapse flex-grow-0"" id=""navbarNav"">
+            <ul class=""navbar-nav text-center text-lg-center"">
+                <li class=""nav-item"">
+                    <a class=""nav-link"" href=""#Intro"">
+                        Home
+                    </a>
+                </li>
+                <li class=""nav-item"">
+                    <a class=""nav-link"" href=""#"">
+                        Destinations
+                    </a>
+                </li>
+                <li class=""nav-item"">
+                    <a class=""nav-link"" href=""#"">
+                        Discover
+                    </a>
+                </li>
+                <li class=""nav-item"">
+                    <a class=""nav-link"" href=""#"">
+                        About
+                    </a>
+                </li>
+            </ul>
         </div>
-        <aside class=""d-flex search-items"" role=""search"">
+        <div class=""search-items nav-item d-flex justify-content-end"" role=""search"">
             <button class=""contact mt-3 mb-3"" type=""search"" placeholder=""Search"" aria-label=""Search"">
                 <img src=""assets/magnifier.png"" width=""35"" height=""35"" alt="""">
             </button>
             <button class="" contact contactBar m-3"" type=""submit"">Contact</button>
-        </aside>
+        </div>
+
     </nav>
 
     <!-- NAVBAR END -->
-
     <!-- INTRO -->
     <div class=""image-container mb-4"">
         <div class=""image-overlay"">
             <div class=""centered-content"">
                 <span class=""headText"">Discover The World</span>
-                <h3>Enjoy a wide variety of travelling services planned by experts</h3>
+                <h3 class=""quote"">Enjoy a wide variety of travelling services planned by experts</h3>
                 <button class=""actioButton"">Find Your Adventure</button>
             </div>
         </div>
@@ -208,21 +200,21 @@ app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) =>
     </div>
 
     <div class=""row container-fluid"">
-        <div class=""col-md-4"">
+        <div class=""col-lg-4"">
             <div class=""text-center"">
                 <img src=""assets/checklist.png"" alt=""Head Image 1"" class=""img-fluid mb-4"">
                 <h2>Fill Out a Survey</h2>
                 <p>Answer a few quick questions about your interests + travel history. Give us all the details!</p>
             </div>
         </div>
-        <div class=""col-md-4"">
+        <div class=""col-lg-4"">
             <div class=""text-center"">
                 <img src=""assets/budget.png"" alt=""Head Image 2"" class=""img-fluid mb-4"">
                 <h2>Calculate Your Budget</h2>
                 <p>Tell us how much you want to spend. We’ll plan a curated Surprise Trip just for you!</p>
             </div>
         </div>
-        <div class=""col-md-4"">
+        <div class=""col-lg-4"">
             <div class=""text-center"">
                 <img src=""assets/travel-luggage.png"" alt=""Head Image 2"" class=""img-fluid mb-4"">
                 <h2>Pack Your Bags</h2>
@@ -242,17 +234,19 @@ app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) =>
         </div>
     </div>
     <!-- TOP DESTINATIONS -->
-
     <!-- REVIEWS -->
     <div class=""row container-fluid"">
         <div class=""owl-carousel owl1"">
             <div class=""review-item text-center"">
-                <h2 style=""font-size: 3em;"">“1st Trip with BonVoyage”
+                <h2 style=""font-size: 3em;"">
+                    “1st Trip with BonVoyage”
                 </h2>
-                <p class=""reviewText"">First trip with BonVoyage was beyond expectations! From seamless planning to
+                <p class=""reviewText"">
+                    First trip with BonVoyage was beyond expectations! From seamless planning to
                     unforgettable experiences, they truly know how to make every moment special. Can't wait for the
                     next
-                    adventure!</p>
+                    adventure!
+                </p>
                 <div class=""star-icons"">
                     <!-- Embedding 5-star icons -->
                     <img src=""assets/star.png"" class=""star-icon"" alt=""Star"">
@@ -266,12 +260,15 @@ app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) =>
             </div>
 
             <div class=""review-item text-center"">
-                <h2 style=""font-size: 3em;"">“2nd Trip with BonVoyage”
+                <h2 style=""font-size: 3em;"">
+                    “2nd Trip with BonVoyage”
                 </h2>
-                <p class=""reviewText"">First trip with BonVoyage was beyond expectations! From seamless planning to
+                <p class=""reviewText"">
+                    First trip with BonVoyage was beyond expectations! From seamless planning to
                     unforgettable experiences, they truly know how to make every moment special. Can't wait for the
                     next
-                    adventure!</p>
+                    adventure!
+                </p>
                 <div class=""star-icons"">
                     <!-- Embedding 5-star icons -->
                     <img src=""assets/star.png"" class=""star-icon"" alt=""Star"">
@@ -287,62 +284,68 @@ app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) =>
         </div>
     </div>
     <!-- REVIEWS END -->
-
     <!-- ADMIN -->
     <div class=""accordion"" id=""accordionExample"">
         <div class=""accordion-item"">
-          <div class=""accordion-header d-flex justify-content-center"" id=""headingOne"">
-            <button style=""font-size: 1.8rem;"" class=""accordion-button collapsed"" type=""button"" data-bs-toggle=""collapse"" data-bs-target=""#collapseOne"" aria-expanded=""true"" aria-controls=""collapseOne"">
-              Admin
-            </button>
-          </div>
-          <div id=""collapseOne"" class=""accordion-collapse collapse"" aria-labelledby=""headingOne"" data-bs-parent=""#accordionExample"">
-            <div class=""accordion-body"">
-              <div class=""card-group"">
-                <div class=""card"" hx-get=""/api/content"" hx-trigger=""mouseleave"" hx-target="".carouselContainer"">
-                  <div class=""card-body"">
-                    <h5 class=""card-title text-center"">Add Item</h5>
-                    <form action=""/api/insert"" method=""post"" enctype=""multipart/form-data"" class=""p-4 needs-validation"">
-                        <input name=""{token.FormFieldName}"" type=""hidden"" value=""{token.RequestToken}"" />
-                        <div class=""mb-3"">
-                            <label for=""imageName"" class=""form-label"">Image Title</label>
-                            <input type=""text"" class=""form-control"" id=""imageName"" name=""name"" required>
-                            <div class=""nameValidation validation"">
-                                Name is required.
-                            </div>
-                        </div>
-                        <div class=""mb-3"">
-                            <label for=""imgExtension"" class=""form-label"">Choose an image</label>
-                            <input type=""file"" accept=""image"" class=""form-control"" id=""imgExtension"" name=""img"" required>
-                            <div class=""imgValidation validation"">
-                                Image is required. PNG or JPEG only.
-                            </div>
-                        </div>
-                        <button type=""submit"" class=""btn btn-dark"">Submit</button>
-                    </form>
-                  </div>
-                </div>
-
-
-                <div class=""card"" hx-get=""/api/content"" hx-trigger=""mouseleave"" hx-target="".carouselContainer"">
-                  <div class=""card-body"">
-                    <h5 class=""card-title text-center"">Remove Item</h5>
-                    <form action=""/api/remove/"" method=""post"" enctype=""multipart/form-data"" class=""remove p-4 needs-validation"" hx-get=""/api/items"" hx-target=""#id"" hx-trigger=""mouseenter"">
-                        <div class=""mb-3"">
-                            <label for=""id"" class=""form-label"">Image Title</label>
-                            <select class=""form-select"" name=""idSelect"" id=""id"">
-                                <option value="""" disabled selected>Please select an item</option>
-                            </select>
-                        </div>
-                        <button type=""submit"" class=""btn btn-dark"">Submit</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
+            <div class=""accordion-header d-flex justify-content-center"" id=""headingOne"">
+                <button style=""font-size: 1.8rem;"" class=""accordion-button collapsed"" type=""button""
+                    data-bs-toggle=""collapse"" data-bs-target=""#collapseOne"" aria-expanded=""true""
+                    aria-controls=""collapseOne"">
+                    Admin
+                </button>
             </div>
-          </div>
+            <div id=""collapseOne"" class=""accordion-collapse collapse"" aria-labelledby=""headingOne""
+                data-bs-parent=""#accordionExample"">
+                <div class=""accordion-body"">
+                    <div class=""card-group"">
+                        <div class=""card"" hx-get=""/api/content"" hx-trigger=""mouseleave"" hx-target="".carouselContainer"">
+                            <div class=""card-body"">
+                                <h5 class=""card-title text-center"">Add Item</h5>
+                                <form action=""/api/insert"" method=""post"" enctype=""multipart/form-data""
+                                    class=""p-4 needs-validation"">
+                                    <input name=""{token.FormFieldName}"" type=""hidden"" value=""{token.RequestToken}"" />
+                                    <div class=""mb-3"">
+                                        <label for=""imageName"" class=""form-label"">Image Title</label>
+                                        <input type=""text"" class=""form-control"" id=""imageName"" name=""name"" required>
+                                        <div class=""nameValidation validation"">
+                                            Name is required.
+                                        </div>
+                                    </div>
+                                    <div class=""mb-3"">
+                                        <label for=""imgExtension"" class=""form-label"">Choose an image</label>
+                                        <input type=""file"" accept=""image"" class=""form-control"" id=""imgExtension""
+                                            name=""img"" required>
+                                        <div class=""imgValidation validation"">
+                                            Image is required. PNG or JPEG only.
+                                        </div>
+                                    </div>
+                                    <button type=""submit"" class=""btn btn-dark"">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <div class=""card"" hx-get=""/api/content"" hx-trigger=""mouseleave"" hx-target="".carouselContainer"">
+                            <div class=""card-body"">
+                                <h5 class=""card-title text-center"">Remove Item</h5>
+                                <form action=""/api/remove/"" method=""post"" enctype=""multipart/form-data""
+                                    class=""remove p-4 needs-validation"" hx-get=""/api/items"" hx-target=""#id""
+                                    hx-trigger=""mouseenter"">
+                                    <div class=""mb-3"">
+                                        <label for=""id"" class=""form-label"">Image Title</label>
+                                        <select class=""form-select"" name=""idSelect"" id=""id"">
+                                            <option value="""" disabled selected>Please select an item</option>
+                                        </select>
+                                    </div>
+                                    <button type=""submit"" class=""btn btn-dark"">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </div>
     <!-- FOOTER -->
     <footer>
         <div class=""footer"" id=""footer"">
@@ -351,8 +354,6 @@ app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) =>
             <p>Copyright &copy;2024 Designed by <span class=""designer"">ALI ABDELGHANI</span> </p>
         </div>
     </footer>
-    </div>
-
     <!-- scripts -->
     <script src=""https://kit.fontawesome.com/758f51ee4f.js"" crossorigin=""anonymous""></script>
     <script src=""https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js""
@@ -365,8 +366,7 @@ app.MapGet("/", (HttpContext context, IAntiforgery antiforgery) =>
     <script src=""index.js""></script>
 </body>
 
-</html>
-    ";
+</html>";
     return Results.Content(htmlContent, "text/html");
 });
 app.Run();
