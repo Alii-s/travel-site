@@ -1,3 +1,17 @@
+@font-face {
+    font-display: swap;
+    font-family: 'Patrick Hand';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/patrick-hand-v23-latin-regular.woff2') format('woff2');
+  }
+@font-face {
+    font-display: swap;
+    font-family: 'Caveat';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/caveat-v18-cyrillic_latin-regular.woff2') format('woff2');
+  }
 body,
 html {
     max-width: 100%;
@@ -7,7 +21,7 @@ html {
 }
 
 .brand {
-    font-family: "Caveat", cursive;
+    font-family: 'Caveat', cursive;
 }
 
 .nav-item a {

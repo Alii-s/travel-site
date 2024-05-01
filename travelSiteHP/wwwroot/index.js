@@ -29,6 +29,8 @@ function initializeCarousel() {
         });
     }
 }
+//make it after certain api calls
+
 document.addEventListener('htmx:afterSwap', function (event) {
     initializeCarousel();
 });
