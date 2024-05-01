@@ -68,7 +68,7 @@ function validate() {
     } else {
         document.querySelector(".nameValidation").classList.add("d-none");
     }
-    if (imgInput.value === "" || !imgInput.value.match(/\.(jpeg|png|jpg|gif)$/)) {
+    if (imgInput.value === "" || !imgInput.value.match(/\.(jpeg|png|jpg|gif|webp)$/)) {
         document.querySelector(".imgValidation").classList.remove("d-none");
         return false;
     } else {

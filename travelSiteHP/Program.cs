@@ -98,7 +98,7 @@ app.MapPost("/api/insert", async (IFormFile img, [FromForm] string name, IDbConn
 
     if (img != null)
     {
-        var allowedExtensions = new[] { ".png", ".gif", ".jpeg", ".jpg" };
+        var allowedExtensions = new[] { ".png", ".gif", ".jpeg", ".jpg",".webp" };
         var fileExtension = Path.GetExtension(img.FileName).ToLowerInvariant();
         if (!allowedExtensions.Contains(fileExtension))
         {
