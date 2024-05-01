@@ -42,7 +42,7 @@ internal class Program
 
         app.MapGet("/api/content", async (IDbConnection db) =>
         {
-            var items = await db.QueryAsync<Item>("SELECT ID,Title FROM Items");
+            var items = await db.QueryAsync<Item>("SELECT * FROM Items");
 
             if (items == null)
             {
@@ -54,22 +54,23 @@ internal class Program
 
             foreach (var item in items)
             {
-                // Constructing the image tag with a placeholder src
-                htmlBuilder.AppendFormat($"""
-            <div class="item">
-                <img src="/api/image/{item.ID}" alt="{item.Title}" loading="lazy">
-                <div class="mask">
-                    <h2>{item.Title}</h2>
-                </div>
-            </div>
-            """
+                string base64Image = Convert.ToBase64String(item.Image);
+                htmlBuilder.AppendFormat(
+                    "<div class=\"item\">" +
+                    "<img src=\"data:image/webp;base64,{0}\" alt=\"{1}\">" +
+                    "<div class=\"mask\">" +
+                    "<h2>{2}</h2>" +
+                    "</div>" +
+                    "</div>",
+                    base64Image,
+                    item.Title,
+                    item.Title
                 );
             }
             htmlBuilder.Append("</div>");
             return Results.Content(htmlBuilder.ToString());
         });
-
-        app.MapGet("/api/image/{id}", async (string id, IDbConnection db) =>
+            app.MapGet("/api/image/{id}", async (string id, IDbConnection db) =>
         {
         fetch:
             byte[]? image;
@@ -85,7 +86,7 @@ internal class Program
             {
                 return Results.NotFound();
             }
-            return Results.File(image, "image/jpeg");
+            return Results.File(image, "image/webp");
         });
 
         app.MapPost("/api/insert", async (IFormFile img, [FromForm] string name, IDbConnection db, IAntiforgery antiforgery, HttpContext context) =>
@@ -138,7 +139,7 @@ internal class Program
         {
             var token = antiforgery.GetAndStoreTokens(context);
             string htmlContent = $"""
-        <!DOCTYPE html>
+    <!DOCTYPE html>
     <html lang="en">
 
     <head>
@@ -148,14 +149,15 @@ internal class Program
         <link rel="icon" href="assets/software-engineer.png" sizes="64x64">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link fetchpriority="high" rel="preconnect" href="https://fonts.googleapis.com">
+        <link fetchpriority="high" rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Patrick+Hand&display=swap"
             rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link fetchpriority="high" rel="preload" as="image" href="assets/dolomites.webp">
         <link rel="stylesheet" href="index.css">
     </head>
 
