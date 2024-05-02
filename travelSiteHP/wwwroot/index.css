@@ -216,7 +216,9 @@ h3 {
     justify-content: center;
     align-items: center;
 }
-
+.owl1 h3 {
+    margin-bottom:none;
+}
 .review-item .reviewText {
     margin-left: 40vh;
     margin-right: 40vh;
